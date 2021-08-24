@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kongotea.fucknoob.mapper.RecordMapper">
+    <insert id="save" parameterType="com.kongotea.fucknoob.entity.Record" keyProperty="recordId" useGeneratedKeys="true">
+        insert into record(record_user,record_number,raid_name,comment,user_job) values(#{recordUser},#{recordNumber},#{raidName},#{comment},#{userJob})
+    </insert>
+    <delete id="deleteById" parameterType="java.lang.String">
+        delete from record where record_id = #{id}
+    </delete>
+    <select id="findAllByUserName" parameterType="java.lang.String" resultType="com.kongotea.fucknoob.entity.Record">
+        select record_id,record_user,record_number,raid_name,comment,user_job from record where record_user = #{name}
+    </select>
+</mapper>

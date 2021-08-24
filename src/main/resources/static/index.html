@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+
+    <title>导随人你又来坐牢啦</title>
+
+
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+    
+    <!-- Custom styles for this template -->
+    <link href="css/signin.css" rel="stylesheet">
+  </head>
+  <body class="text-center">
+    
+<form class="form-signin" th:action="@{/login}" id="myform">
+  <img class="mb-4" src="images/index_pic.png" alt="brand" width="400" height="250" style="margin-left: -15%">
+  <h1 class="h3 mb-3 font-weight-normal">请登录</h1>
+  <p style="color: red" th:text="${msg}" th:if="${not #strings.isEmpty(msg)}"></p>
+  <input type="text" name="qqid" class="form-control" placeholder="QQ号" required>
+  <input type="password" name="password" class="form-control" placeholder="Password" required>
+
+  <button class="btn btn-lg btn-primary btn-block" type="submit">登陆</button>
+
+</form>
+
+
+    
+  </body>
+</html>

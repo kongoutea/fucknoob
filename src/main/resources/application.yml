@@ -1,0 +1,16 @@
+spring:
+  thymeleaf:
+    prefix: classpath:/static/
+    suffix: .html
+  datasource:
+    url: jdbc:mysql://localhost:3306/fuck_noob?useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: myc82myc
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis:
+  mapper-locations: classpath:/mapper/*.xml
+  type-aliases-package: com.kongotea.fucknoob.entity
+  configuration:
+    call-setters-on-nulls: true
+    map-underscore-to-camel-case: true
