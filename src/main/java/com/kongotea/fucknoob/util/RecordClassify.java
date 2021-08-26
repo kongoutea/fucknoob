@@ -10,9 +10,6 @@ public class RecordClassify {
             if(r.equals(ele)) {
                 return true;
             }
-            else{
-                return false;
-            }
         }
 
         return false;

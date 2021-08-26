@@ -26,7 +26,7 @@
     </button>
     <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-            <a class="nav-link" href="#">注销</a>
+            <a class="nav-link" th:href="@{index.html}">注销</a>
         </li>
     </ul>
 </nav>
@@ -62,7 +62,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" th:href="@{journal.html}">
               <span data-feather="file-text">
                 <i class="bi bi-journal-bookmark-fill" style="font-size: 1.5rem"></i>
               </span>
@@ -70,7 +70,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" th:href="@{noob.html}">
               <span data-feather="file-text">
                 <i class="bi bi-lightning" style="font-size: 1.5rem"></i>
               </span>
@@ -95,10 +95,12 @@
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="userjob">用的职业</label>
+                            <span class="text-muted">(简称就行)</span>
                             <input type="text" class="form-control" name="userJob" id="userjob">
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="raidname">副本名字</label>
+                            <span class="text-muted">(简称即可)</span>
                             <input type="text" class="form-control" name="raidName" id="raidname">
                         </div>
 

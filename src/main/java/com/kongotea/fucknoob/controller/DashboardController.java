@@ -16,7 +16,7 @@ public class DashboardController {
     @Autowired
     private RecordMapper recordMapper;
 
-    @RequestMapping
+    @RequestMapping("/dashboard.html")
     public String dashboard(HttpSession session, Model model) {
         String userName = session.getAttribute("username").toString();
         model.addAttribute("username",userName);
