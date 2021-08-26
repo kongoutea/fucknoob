@@ -115,11 +115,6 @@ public class JournalController {
         }
         model.addAttribute("jobcolor", jobColors);
 
-        System.out.println(allJobNames);
-        System.out.println(allJobTimes);
-        System.out.println(allRaidNames);
-        System.out.println(allRaidTimes);
-
         return "journal";
     }
 
