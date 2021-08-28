@@ -9,5 +9,7 @@
     <select id="findById" parameterType="java.lang.String" resultType="com.kongotea.fucknoob.entity.User">
         select qqid userId, name userName, password password from user where qqid = #{userFindId}
     </select>
-
+    <select id="findAll" resultType="com.kongotea.fucknoob.entity.User">
+        select qqid userId, name userName, password password from user
+    </select>
 </mapper>

@@ -138,12 +138,6 @@
             title: {
               text: '导随的职业历史'
             },
-            legend: {
-              data: [{
-                name: '次数',
-                icon: 'circle',
-              }]
-            },
             tooltip: {},
             xAxis: {
               data: allJobNames
@@ -167,8 +161,95 @@
           }
           jobChart.setOption(jobOption);
         </script>
-
       </div>
+
+      <div id="bobo" class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom" style="margin-left: 22%; margin-right: 22%; width: 600px; height: 400px">
+        <script th:inline="javascript">
+          var boboChart = echarts.init(document.getElementById('bobo'));
+          var boboData = [];
+          var bobo = new Object();
+          bobo.name = '波波';
+          bobo.value = 0;
+          boboData[0] = bobo;
+          var other = new Object();
+          other.name = '其他';
+          other.value = 0;
+          boboData[1] = other;
+          for(var i = 0; i < allRaidNames.length ; i++) {
+            if(allRaidNames[i].toString() === '波波') {
+              boboData[0].value += allRaidTimes[i];
+            }
+            else{
+              boboData[1].value += allRaidTimes[i];
+            }
+          }
+          var boboOption = {
+            title: {
+              text: '波波率'
+            },
+            tooltip: {},
+            series: [{
+              type: 'pie',
+              data: boboData
+
+            }]
+          }
+          boboChart.setOption(boboOption)
+        </script>
+      </div>
+      <div id="jobClassify" class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom" style="margin-left: 22%; margin-right: 22%; width: 600px; height: 400px">
+        <script th:inline="javascript">
+          var jobCChart = echarts.init(document.getElementById('jobClassify'));
+          var jobCData = [];
+          var jobCColor = ['#0000CD','#228B22','#FF0000'];
+          var tank = new Object();
+          tank.name = '坦克';
+          tank.value = 0;
+          jobCData[0] = tank;
+          var heal = new Object();
+          heal.name = '奶妈';
+          heal.value = 0;
+          jobCData[1] = heal;
+          var dps = new Object();
+          dps.name = 'DPS';
+          dps.value = 0;
+          jobCData[2] = dps;
+          for(var i = 0; i < allJobNames.length ; i++) {
+            var thisJob = allJobNames[i].toString();
+            if(thisJob === '黑骑' || thisJob ==='枪刃' || thisJob === '骑士' || thisJob ==='战士') {
+              jobCData[0].value += allJobTimes[i];
+            }
+            else if(thisJob === '占星' || thisJob === '学者' || thisJob === '白魔') {
+              jobCData[1].value += allJobTimes[i];
+            }
+            else{
+              jobCData[2].value += allJobTimes[i];
+            }
+          }
+          var jobCOption = {
+            title: {
+              text: '颜色组成'
+            },
+            tooltip: {},
+            series: [{
+              type: 'pie',
+              data: jobCData,
+              itemStyle: {
+                normal: {
+                  color: function(params) {
+                    var colorList = jobCColor;
+                    return colorList[params.dataIndex]
+                  }
+                }
+              }
+            }]
+          }
+          jobCChart.setOption(jobCOption)
+        </script>
+      </div>
+
+
+
     </main>
   </div>
 </div>

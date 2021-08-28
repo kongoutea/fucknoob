@@ -17,13 +17,16 @@
 </head>
 <body class="text-center">
 
-<form class="form-signin" th:action="@{/login}" id="myform">
+<form class="form-signin" th:action="@{/regis}" id="myform">
     <img class="mb-4" src="images/index_pic.png" alt="brand" width="400" height="250" style="margin-left: -15%">
     <h1 class="h3 mb-3 font-weight-normal">注册</h1>
+    <p style="color: red" th:text="${msg}" th:if="${not #strings.isEmpty(msg)}"></p>
     <input type="text" name="qqid" class="form-control" placeholder="QQ号" required>
+    <input type="text" name="name" class="form-control" placeholder="角色名" required>
     <input type="password" name="password" class="form-control" placeholder="Password" required>
 
-    <button class="btn btn-lg btn-primary btn-block" type="submit">登陆</button>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">注册</button>
+    <a class="btn btn-lg btn-secondary btn-block" th:href="@{/index.html}">返回</a>
 
 </form>
 

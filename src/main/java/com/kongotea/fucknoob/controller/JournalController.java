@@ -27,7 +27,6 @@ public class JournalController {
         ArrayList<String> allRaidNames = new ArrayList<>();
         ArrayList<Integer> allRaidTimes = new ArrayList<>();
         for(Record record : userRecord) {
-
             if(!RecordClassify.isExist(record.getRaidName(), allRaidNames)) {
                 allRaidNames.add(record.getRaidName());
                 allRaidTimes.add(1);
@@ -114,6 +113,11 @@ public class JournalController {
             }
         }
         model.addAttribute("jobcolor", jobColors);
+
+        //波波饼图
+
+
+        //职业饼图
 
         return "journal";
     }

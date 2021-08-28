@@ -48,6 +48,30 @@ public class LoginController {
         }
     }
 
+    @RequestMapping("/regis")
+    public String register(
+            @RequestParam("qqid") String qqid,
+            @RequestParam("name") String userName,
+            @RequestParam("password") String password,
+            Model model) {
+        //注册
+        User newUser = new User();
+        newUser.setUserId(qqid);
+        newUser.setUserName(userName);
+        newUser.setPassword(password);
+        List<User> allUsers = userMapper.findAll();
+        for(User thisUser : allUsers) {
+            if(thisUser.getUserId().equals(newUser.getUserId())) {
+                model.addAttribute("msg","你已经注册过啦");
+                return "register";
+            }
+        }
+        if(userMapper.save(newUser) == 1) {
+            model.addAttribute("msg","注册成功！可以登陆");
+        }
+
+        return "index";
+    }
 
 
 }
